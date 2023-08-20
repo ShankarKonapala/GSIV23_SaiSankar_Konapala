@@ -21,8 +21,6 @@ const MovieDetails = () => {
     dispatch(fetchMovieById(id));
   }, [dispatch, id]);
 
-  console.log('movie', movie);
-
   return (
 
     <div>
@@ -43,8 +41,10 @@ const MovieDetails = () => {
               {movie ? movie.original_title : " "}
               (Rating:{""}{movie ? movie.vote_average : ""}<i className="fas fa-star" />)
             </Typography>
-            {/* <h3>Release Date: {movie ? movie.release_date : ""}|
-              Length:{movie ? movie.genre_ids.length : ""} </h3> */}
+            {/* <h3>
+              Release Date: {movie.release_date ? movie.release_date : "Unavailable"}|
+              Length:{movie.genre_ids ? movie.genre_ids.length : "Unavailable"} 
+              </h3> */}
             <Typography variant="body2" color="text.secondary">
               {movie ? movie.overview : ""}
             </Typography>

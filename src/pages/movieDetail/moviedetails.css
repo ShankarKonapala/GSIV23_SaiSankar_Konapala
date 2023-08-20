@@ -14,8 +14,6 @@ img {
     width: auto;
     margin-left: 20px;
     display: flex;
-    box-shadow: 5px 5px 5px;
-    box-shadow: top;
 }
 
 .content {
@@ -35,5 +33,4 @@ img {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    box-shadow: 0 5px #605f5f
 }

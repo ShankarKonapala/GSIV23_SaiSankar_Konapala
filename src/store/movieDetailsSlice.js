@@ -37,7 +37,6 @@ export const fetchMovieById = createAsyncThunk(
                 `https://api.themoviedb.org/3/movie/${movieId}?api_key=06fb1dc40ed2a796e2d61130c353d781&language=en-US&page=1`
             );
             const data = await response.json();
-            console.log(data);
             return data;
         } catch (error) {
             throw error.response.data;

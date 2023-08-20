@@ -27,6 +27,9 @@ const Movies = () => {
     : movies.filter(movie =>
       movie.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+  const sortedMovies = [...filteredMovies];
+  sortedMovies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+
   return (<>
     <div className='header'>
       <div className="search">
@@ -41,7 +44,7 @@ const Movies = () => {
     </div>
     <div className='movie-card'>
       {
-        filteredMovies.map((movie, index) => (
+        sortedMovies.map((movie, index) => (
           <MovieCard key={movie.id} movie={movie} id={index}></MovieCard>
         ))
       }
