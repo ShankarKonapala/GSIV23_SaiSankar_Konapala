@@ -1,0 +1,24 @@
+.card__rating {
+    float: right;
+}
+.card__runtime {
+    font-size: .75rem;
+    margin-bottom: 0.25rem;
+}
+.card__title {
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+.card_rating{
+    float: right;
+}
+.description{
+    padding-top: 1px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.description-tag{
+    padding-top: 2px;
+}

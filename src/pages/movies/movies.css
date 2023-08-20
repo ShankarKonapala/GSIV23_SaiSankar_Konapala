@@ -1,0 +1,36 @@
+.movie-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    box-shadow: 5px 5px;
+}
+
+.header {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px #1f1c1c
+}
+
+.search {
+    display: flex;
+    width: 500px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+.search-input {
+    padding-left: 5px;
+    width: 500;
+    border: none;
+    outline: none;
+}
+
+.search-icon {
+    padding-left: 5px;
+    font-size: large;
+}
