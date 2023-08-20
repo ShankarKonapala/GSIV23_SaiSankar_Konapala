@@ -5,7 +5,7 @@ const initialState = {
     data: [],
     status: StatusCode.IDLE
 };
-const movieSlice = createSlice({
+const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {},
@@ -24,12 +24,11 @@ const movieSlice = createSlice({
     }
 });
 
-export const { fetchmovies } = movieSlice.actions;
-export default movieSlice.reducer;
+export const { fetchmovies } = moviesSlice.actions;
+export default moviesSlice.reducer;
 
 export const getMovies = createAsyncThunk('movies/get', async () => {
     const data = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=06fb1dc40ed2a796e2d61130c353d781&language=en-US&page=1')
     const result = await data.json();
-    // console.log(data);
     return result.results;
 })

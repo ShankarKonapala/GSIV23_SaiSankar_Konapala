@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { fetchMovieById } from '../../store/movieDetailsSlice'
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
+import { useDispatch } from 'react-redux';
+
 import './moviedetails.css';
 
 const MovieDetails = () => {
+  const { id } = useParams()
+  const dispatch = useDispatch();
+  const movie = useSelector((state) => state.movie.movieDetails);
 
-  const { data: movies } = useSelector(state => state.movies);
+  useEffect(() => {
+    dispatch(fetchMovieById(id));
+  }, [dispatch, id]);
 
-  const { id } = useParams();
-  const movieId = id;
-
-  const movieDetail = movies.filter((movie) => movieId == movie.id)
-  const movie = movieDetail[0];
-  console.log(movie)
+  console.log('movie', movie);
 
   return (
 
@@ -39,8 +43,8 @@ const MovieDetails = () => {
               {movie ? movie.original_title : " "}
               (Rating:{""}{movie ? movie.vote_average : ""}<i className="fas fa-star" />)
             </Typography>
-            <h3>Release Date: {movie ? movie.release_date : ""}|
-              Length:{movie ? movie.genre_ids.length : ""} </h3>
+            {/* <h3>Release Date: {movie ? movie.release_date : ""}|
+              Length:{movie ? movie.genre_ids.length : ""} </h3> */}
             <Typography variant="body2" color="text.secondary">
               {movie ? movie.overview : ""}
             </Typography>
